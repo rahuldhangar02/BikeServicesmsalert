@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+
+</head>
+<body>
+
+ <section>
+<div class="container">
+    <div class="row">
+    <div class="col-md-10 offset-md-1">
+    			
+                 <h6 class="text-center">Add Service Info Here</h6>
+                 
+                <form th:action="@{/updateService/{id}}" th:object="${bike}" method="post">
+        
+           <input type="hidden" name="id" th:filed="*{id}" th:value=${bike.id}/>
+                  <div class="form-group">	
+                      	<label>Name</label>
+                      	<input type="text" 
+                      	name="name"  	
+                      	 th:value="${bike.name}"
+                      	class="form-control"
+                      	 placeholder="Enter Your Name"
+                      	 required="required"
+                      	
+                      	>
+                      	
+                      </div>
+                       
+                      <div class="form-group">	
+                      	<label>Customer Address</label>
+                      	<input type="text"
+                      	 name="address"
+                      	  class="form-control" 
+                      	  placeholder="Enter Customer Address"
+                      	  required="required"
+
+                      	  >
+                      </div>
+                        <div class="form-group">	
+                      	<label>Customer Mobile No</label>
+                      	<input type="number" 
+                      	name="mobileNo" 
+                      	class="form-control"
+                      	
+                      	placeholder="Please Enter Customer Mobile No"
+                      	 required="required">
+                      </div>
+                       <div class="form-group">	
+                      	<label>Vehicle No</label>
+                      		<input type="text" 
+                      		name="vehicleNo"
+                      		 class="form-control"
+                      		  placeholder="Enter Vehicle No"
+                      		  required="required"
+                      		
+                      		  
+                      		  >
+                      </div>
+                    
+                    
+                       <div class="form-group">	
+                      	<label>Mecanic Name</label>
+                      		<input type="text" 
+                      		name="mecanicName"
+                      		 class="form-control"
+                      		  placeholder="Enter About You"
+                      		  required="required"
+                      		
+                      		  
+                      		  >
+                      </div>
+                      <div class="row">
+                      <div class="col-md-4">
+                          <div class="form-group">	
+                      	<label>Service Date</label>
+                      		<input type="date" 
+                      		name="serviceDate"
+                      		 class="form-control"
+                      		 
+                      		  required="required"
+                      		
+                      		  
+                      		  >
+                      </div>
+                      </div>
+                         <div class="col-md-4">
+                          <div class="form-group">	
+                      	<label>Service Time</label>
+                      		<input type="text" 
+                      		name="serviceTime"
+                      		 class="form-control"
+                      		 
+                      		
+                      		
+                      		  
+                      		  >
+                      </div>
+                      </div>
+                               <div class="col-md-4">
+                          <div class="form-group">	
+                      	<label>Next Service Date</label>
+                      		<input type="date" 
+                      		name="nextServiceDate"
+                      		 class="form-control"
+                      		
+                      		  required="required"
+                      		
+                      		  
+                      		  >
+                      </div>
+                      </div>
+                      </div>
+                        <div class="container text-center">
+                      <div class="form-group">	
+                      <input type="submit" name="submit" value="Save" class="btn btn-primary">
+                      <input type="submit" name="submit" value="Reset" class="btn btn-warning">
+                      </div>
+                      </div>
+                       </form>
+                      </div>
+                
+                      
+                      </div>
+                     
+                     
+                      
+                    
+                
+                </div>
+   
+
+ </section>
+
+</body>
+</html>

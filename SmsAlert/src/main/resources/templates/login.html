@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+
+</head>
+<body>
+
+ <section>
+<div class="container">
+    <div class="row">
+    <div class="col-md-4">
+    			<div class="my-card mt-2">
+
+                 <h6 class="text-center">Add Mecanic Name</h6>
+            
+               <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+                 <h4 class="text-center" th:text="${session.message.content}"></h4>
+                 <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+               </div>
+                 <form action=""  th:action="@{/addmecanic}"  method="post" th:object="${mecanic}">
+                  <div class="form-group">	
+                      	<label>Name</label>
+                      	<input type="text" 
+                      	name="name" 
+                      
+                      	class="form-control"
+                      
+                      	 placeholder="Enter Mecanic Name"
+                      	>
+                      	
+                      </div>
+                       
+                 
+                      <div class="container text-centr">
+                      <div class="form-group">	
+                      <input type="submit" name="submit" value="Save" class="btn btn-primary">
+                    
+                      </div>
+                      </div>
+                 </form>
+                </div>
+    </div>
+    <div class="col-md-8">
+    <div class="my-card mt-2">
+   <div class="header text-center text-primary">View All Mecanic</div>
+   <div class="body">
+   
+   <table id="example" class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Mecanic Name</th>
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+ 
+   <tbody>
+   <tr th:each="data : ${mlist}">
+     <td th:text="${data.id}"></td>
+     <td th:text="${data.name}"></td>
+    
+     <td>
+     
+    
+     <a href="" th:href="@{/showCountryForm/{id}(id=${data.id})}" class="btn btn-primary">Edit</a>
+     <a href="" th:href="@{/deleteCountry/{id}(id=${data.id})}" class="btn btn-primary">Delete</a>
+     </td>
+    </tr>
+ 
+  </tbody>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#example').DataTable();
+	} );
+	</script>
+  
+   </div>
+                
+                 
+                
+    </div>
+    </div>
+</div>
+</div>
+ </section>
+
+</body>
+</html>
